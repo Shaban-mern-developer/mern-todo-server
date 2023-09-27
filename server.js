@@ -7,7 +7,7 @@ const dotenv = require('dotenv')
 const database = require('./config/database')
 const bodyParser = require('body-parser')
 
-app.use(express.json())
+app.use(express.json());
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -18,7 +18,11 @@ const port = process.env.PORT || 8000
 app.get('/', async (req, res) => {
     res.send('Hello Api')
 })
-
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+  });
+  
 app.use('/api/activity', ActivityRoute)
 app.use('/api/users', UserRoute)
 
