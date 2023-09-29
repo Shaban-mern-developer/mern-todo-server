@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
             return res.status(500).send('User could not be created');
         }
 
-        return res.status(201).send(savedUser);
+        return res.status(200).send(savedUser);
     } catch (error) {
         console.error('Error during user registration:', error);
         return res.status(500).send('Internal Server Error');
