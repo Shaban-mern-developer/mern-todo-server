@@ -8,6 +8,14 @@
   ],
   "routes": [
     {
+      "src": "/api/activity",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/users",
+      "dest": "server.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
