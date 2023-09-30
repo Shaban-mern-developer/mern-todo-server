@@ -1,5 +1,6 @@
 const ActivityRoute = require('./routes/activityRoute');
 const UserRoute = require('./routes/userRoutes');
+const serverless = require('serverless-http');
 const cors = require('cors');
 const express = require('express');
 const app = express();
@@ -23,7 +24,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/activity', ActivityRoute);
 app.use('/api/users', UserRoute);
-
+module.exports = {
+  handler: serverless(app),
+};
 app.use((err, req, res, next) => {
   console.error(err.stack);
 
