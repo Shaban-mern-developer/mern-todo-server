@@ -7,16 +7,17 @@ const dotenv = require('dotenv');
 const database = require('./config/database');
 const bodyParser = require('body-parser');
 
+dotenv.config();
+
+database();
+
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-// Initialize database connection
-database();
-
 const port = process.env.PORT || 8000;
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello API');
 });
 
@@ -25,6 +26,11 @@ app.use('/api/users', UserRoute);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
+
+  if (res.headersSent) {
+    return next(err);
+  }
+
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
