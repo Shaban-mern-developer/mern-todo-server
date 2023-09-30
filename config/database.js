@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-async function dbconnect() {
+async function database() {
   try {
     await mongoose.connect(process.env.DATABASE_URL, {
       useNewUrlParser: true,
@@ -15,4 +15,4 @@ async function dbconnect() {
   }
 }
 
-module.exports = dbconnect;
+module.exports = database;
