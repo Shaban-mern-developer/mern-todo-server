@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const activity = await Activity.find()
     try {
-        res.send(activity).status(200)
+        res.send(activity).status(200).maxTimeMS(2000)
     } catch (error) {
         res.send(error).status(500)
     }
