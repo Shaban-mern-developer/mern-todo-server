@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const activity = await Activity.find().maxTimeMS(30000) 
+    const activity = await Activity.find()
     try {
         res.send(activity).status(200)
     } catch (error) {
