@@ -1,3 +1,4 @@
+
 const ActivityRoute = require('./routes/activityRoute');
 const UserRoute = require('./routes/userRoutes');
 const cors = require('cors');
