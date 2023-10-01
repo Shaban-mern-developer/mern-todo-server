@@ -1,11 +1,12 @@
+const UserRoute = require('./routes/userRoutes');
+const ActivityRoute = require('./routes/activityRoute');
+const cors = require('cors');
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+const database = require('./config/database');
+const bodyParser = require('body-parser');
 
-import ActivityRoute from './routes/activityRoute.js';
-import UserRoute from './routes/userRoutes.js';
-import cors from 'cors';
-import express from 'express';
-import { config as dotenvConfig } from 'dotenv';
-import database from './config/database.js';
-import { json } from 'body-parser';
 dotenv.config();
 
 database();

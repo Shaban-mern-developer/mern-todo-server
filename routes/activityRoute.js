@@ -1,7 +1,7 @@
-import Activity from '../models/activity.js';
-import express from 'express';
-
+const Activity = require('../models/activity')
+const express = require('express');
 const router = express.Router();
+
 router.get('/', async (req, res) => {
     const activity = await Activity.find().maxTimeMS(3000)
     try {
