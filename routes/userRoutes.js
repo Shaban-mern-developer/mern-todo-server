@@ -1,9 +1,9 @@
-const User = require('../models/user')
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken')
+import User from '../models/user.js';
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
+const router = express.Router();
 router.get('/', async (req, res) => {
     const userList = await User.find().maxTimeMS(3000)
     try {
